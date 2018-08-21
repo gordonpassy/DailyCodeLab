@@ -1,3 +1,5 @@
+import java.util.stream.Collectors;
+
 /**
  * @author gordonopassy
  */
@@ -24,12 +26,7 @@ public class DuplicateEncoder {
         char[]wordCharacters=word.toLowerCase().toCharArray();
         StringBuilder stringBuilder=new StringBuilder();
         for (char character: wordCharacters) {
-            int characterCount=0;
-            for(char chr:wordCharacters){
-                if(chr==character)
-                    characterCount+=1;
-            }
-            stringBuilder.append(characterCount>1?')':'(');
+            stringBuilder.append(word.toLowerCase().indexOf(character)==word.toLowerCase().lastIndexOf(character)?'(':')');
         }
         return stringBuilder.toString();
     }
